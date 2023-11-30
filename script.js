@@ -13,21 +13,32 @@ const mouse = {
   y: undefined,
 };
 
-// canvas.addEventListener("click", (e) => {
-//   mouse.x = e.x;
-//   mouse.y = e.y;
-//   drawCircle(mouse.x, mouse.y);
-// });
+canvas.addEventListener("click", (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+  // drawCircle();
+});
 
 canvas.addEventListener("mousemove", (e) => {
   mouse.x = e.x;
   mouse.y = e.y;
-  drawCircle(mouse.x, mouse.y);
+  // drawCircle();
 });
 
-function drawCircle(x, y) {
+function drawCircle() {
   ctx.fillStyle = "blue";
   ctx.beginPath();
-  ctx.arc(x, y, 50, 0, Math.PI * 2);
+  ctx.arc(mouse.x, mouse.y, 50, 0, Math.PI * 2);
   ctx.fill();
 }
+
+class Particle {
+  
+}
+
+function animate() {
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawCircle();
+  requestAnimationFrame(animate);
+}
+animate();
