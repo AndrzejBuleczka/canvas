@@ -17,7 +17,7 @@ const mouse = {
 canvas.addEventListener("click", (e) => {
   mouse.x = e.x;
   mouse.y = e.y;
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     particleArray.push(new Particle());
   }
 });
@@ -25,7 +25,7 @@ canvas.addEventListener("click", (e) => {
 canvas.addEventListener("mousemove", (e) => {
   mouse.x = e.x;
   mouse.y = e.y;
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     particleArray.push(new Particle());
   }
 });
@@ -65,7 +65,9 @@ function handleParticles() {
 }
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgba(0,0,0,0.2)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
   handleParticles();
   requestAnimationFrame(animate);
 }
