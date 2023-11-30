@@ -8,10 +8,20 @@ window.addEventListener("resize", function () {
   canvas.height = window.innerHeight;
 });
 
-ctx.fillStyle = "yellow";
-ctx.strokeStyle = "red";
-ctx.lineWidth = 15;
-ctx.beginPath();
-ctx.arc(100, 150, 50, 0, Math.PI * 2);
-ctx.fill();
-ctx.stroke();
+const mouse = {
+  x: null,
+  y: null,
+};
+
+canvas.addEventListener("click", (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+  drawCircle(mouse.x, mouse.y);
+});
+
+function drawCircle(x, y) {
+  ctx.fillStyle = "blue";
+  ctx.beginPath();
+  ctx.arc(x, y, 50, 0, Math.PI * 2);
+  ctx.fill();
+}
