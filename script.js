@@ -9,11 +9,17 @@ window.addEventListener("resize", function () {
 });
 
 const mouse = {
-  x: null,
-  y: null,
+  x: undefined,
+  y: undefined,
 };
 
-canvas.addEventListener("click", (e) => {
+// canvas.addEventListener("click", (e) => {
+//   mouse.x = e.x;
+//   mouse.y = e.y;
+//   drawCircle(mouse.x, mouse.y);
+// });
+
+canvas.addEventListener("mousemove", (e) => {
   mouse.x = e.x;
   mouse.y = e.y;
   drawCircle(mouse.x, mouse.y);
